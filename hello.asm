@@ -13,3 +13,7 @@ mov rdi, 1 ;arg 1 where to write (descriptor)
 mov rsi, message ;arg 2 string start
 mov rdx, 14 ;how many bytes
 syscall
+
+mov rax, 60 ;'exit' syscall
+xor rdi, rdi
+syscall
