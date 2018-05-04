@@ -1,0 +1,4 @@
+sudo apt-get install gcc
+sudo apt-get install gdb
+sudo apt-get install nasm
+sudo apt-get install make
