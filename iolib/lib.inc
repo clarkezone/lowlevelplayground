@@ -1,7 +1,19 @@
+global exit
+global string_length
 section .text
 
+exit:
+    mov rax, 60
+    ;temporary preserve edi to enable calling funciton to set a return value
+    ;xor edi, edi
+    syscall
+
 string_length:
-    xor rax, rax
+    mov rax, -1
+    .loop:
+    inc rax
+    cmp byte[rdi+rax], 0
+    jne .loop
     ret
 
 print_string:
