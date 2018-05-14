@@ -1,5 +1,6 @@
 global exit
 global string_length
+global print_string
 section .text
 
 exit:
@@ -17,7 +18,13 @@ string_length:
     ret
 
 print_string:
-    xor rax, rax
+    push rdi
+    call string_length
+    mov rdx, rax ;string length in rcx
+    mov rax, 1
+    mov rdi, 1 ;file descriptor
+    pop rsi ;load string pointer into rsi
+    syscall
     ret
 
 
